@@ -1,0 +1,88 @@
+.post-content {
+  margin-top: theme("spacing[8]");
+  margin-bottom: theme("spacing[8]");
+}
+
+.post-content * {
+  margin-top: theme("spacing[4]");
+  letter-spacing: 0.025em;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.post-content a:link,
+.post-content a:visited {
+  color: #0000ee;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.post-content a:link:active,
+.post-content a:visited:active {
+  color: #551a8b;
+}
+
+.post-content blockquote {
+  border-left: 4px solid;
+  padding-left: theme("spacing[4]");
+}
+
+.post-content blockquote * {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.post-content blockquote img {
+  display: none;
+}
+
+.post-content h1 {
+  margin-top: theme("spacing[10]");
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.post-content h2 {
+  font-weight: 700;
+}
+
+.post-content h3 {
+  font-weight: 700;
+}
+
+.post-content h4 {
+  font-weight: 700;
+}
+
+.post-content h5 {
+  font-weight: 700;
+}
+
+.post-content h6 {
+  font-weight: 700;
+}
+
+.post-content code {
+  background: #282a36;
+  color: #f8f8f2;
+  padding: theme("spacing[1]");
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.post-content pre.highlight {
+  display: block;
+  background: #282a36;
+  color: #f8f8f2;
+  overflow: auto;
+  padding: theme("spacing[4]");
+}
+
+.post-content pre.highlight * {
+  font-family: monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  white-space: pre;
+}

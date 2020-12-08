@@ -1,0 +1,6 @@
+.gridwrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(theme("spacing[72]"), 1fr));
+  grid-gap: theme("spacing[8]") theme("spacing[4]");
+  margin-top: theme("spacing[8]");
+}

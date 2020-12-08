@@ -1,39 +1,46 @@
-import Layout from "../../components/layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
-import Date from "../../components/date";
-import utilStyles from "../../styles/utils.module.css";
+import Layout from "../../components/layout";
+import Navbar from "../../components/navbar";
+import PostSection from "../../components/post";
+import Footer from "../../components/footer";
+import api from "../../services/devApi";
+import devConfig from "../../config/dev";
 
-export default function Post({ postData }) {
+export default function Post({ postData, name }) {
   return (
     <Layout>
       <Head>
+        <meta name="author" content={name} />
+        <meta name="description" content={postData.description} />
         <title>{postData.title}</title>
+        <meta property="og:image" content={postData.social_image} />
+        <meta name="og:title" content={postData.title} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      <Navbar blog name={name} />
+      <PostSection data={postData} />
+      <Footer name={name} />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
-  return {
-    paths,
-    fallback: false,
-  };
+  const devUsername = "dyarleniber";
+  const { buildperpage: perpage } = devConfig;
+  const response = await api.get(
+    `/articles?username=${devUsername}&page=${1}&per_page=${perpage}`
+  );
+
+  const paths = response.data.map((post) => ({
+    params: { id: post.id.toString() },
+  }));
+
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id);
-  return {
-    props: {
-      postData,
-    },
-  };
+  const name = "Dyarlen Iber";
+  const response = await api.get(`/articles/${params.id}`);
+
+  return { props: { postData: response.data, name } };
 }
