@@ -6,9 +6,25 @@ export default function Blog({ name, description, devUsername }) {
   return (
     <Layout blog name={name}>
       <Head>
+        <title>{name}</title>
         <meta name="author" content={name} />
         <meta name="description" content={description} />
-        <title>{name}</title>
+
+        {/* Schema.org markup for Google+ */}
+        <meta itemprop="name" content={name} />
+        <meta itemprop="description" content={description} />
+
+        {/* Twitter Card data */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={name} />
+        <meta name="twitter:description" content={description} />
+
+        {/* Open Graph data */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content={name} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={description} />
+        <meta property="og:site_name" content={name} />
       </Head>
       <BlogSection username={devUsername} />
     </Layout>
