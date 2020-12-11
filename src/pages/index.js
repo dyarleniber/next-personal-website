@@ -2,7 +2,6 @@ import Head from "next/head";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import Contact from "../components/contact";
-import Footer from "../components/footer";
 
 export default function Home({
   name,
@@ -13,7 +12,7 @@ export default function Home({
   socialmedialinks,
 }) {
   return (
-    <Layout>
+    <Layout name={name}>
       <Head>
         <meta name="author" content={name} />
         <meta name="description" content={description} />
@@ -27,7 +26,6 @@ export default function Home({
         socialmedialinks={socialmedialinks}
       />
       <Contact />
-      <Footer name={name} />
     </Layout>
   );
 }

@@ -1,14 +1,12 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
-import Navbar from "../../components/navbar";
 import PostSection from "../../components/post";
-import Footer from "../../components/footer";
 import api from "../../services/devApi";
 import devConfig from "../../config/dev";
 
 export default function Post({ postData, name }) {
   return (
-    <Layout>
+    <Layout blog name={name}>
       <Head>
         <meta name="author" content={name} />
         <meta name="description" content={postData.description} />
@@ -17,9 +15,7 @@ export default function Post({ postData, name }) {
         <meta name="og:title" content={postData.title} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Navbar blog name={name} />
       <PostSection data={postData} />
-      <Footer name={name} />
     </Layout>
   );
 }

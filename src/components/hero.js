@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "../components/navbar";
 import styles from "./hero.module.css";
 
 export default function Hero({
@@ -11,7 +10,6 @@ export default function Hero({
 }) {
   return (
     <>
-      <Navbar />
       <section
         id="home"
         className={`${styles.container} px-8 flex flex-col justify-center items-center text-center bg-gradient-to-r from-gray-50 to-gray-300 overflow-hidden`}

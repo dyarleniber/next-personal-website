@@ -1,20 +1,16 @@
 import Head from "next/head";
 import Layout from "../components/layout";
-import Navbar from "../components/navbar";
 import BlogSection from "../components/blog";
-import Footer from "../components/footer";
 
 export default function Blog({ name, description, devUsername }) {
   return (
-    <Layout>
+    <Layout blog name={name}>
       <Head>
         <meta name="author" content={name} />
         <meta name="description" content={description} />
         <title>{name}</title>
       </Head>
-      <Navbar blog name={name} />
       <BlogSection username={devUsername} />
-      <Footer name={name} />
     </Layout>
   );
 }
