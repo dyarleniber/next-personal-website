@@ -1,35 +1,32 @@
-import { useRouter } from "next/router";
+import Link from "next/link";
 import Date from "../components/date";
 
 export default function Post({ data }) {
-  const router = useRouter();
   return (
-    <article className="mx-auto p-8 max-w-5xl">
+    <article className="mx-auto p-8 max-w-5xl overflow-auto">
       <Date
         className="text-base text-gray-700"
         dateString={data.published_at}
       />
       {data.edited_at && (
-        <div className="inline text-sm text-gray-700">
-          <span> (</span>
+        <div className="text-xs text-gray-700">
           <p className="inline">Updated on </p>
           <Date dateString={data.edited_at} />
-          <span>) </span>
         </div>
       )}
       <h1 className="mt-4 text-3xl">{data.title}</h1>
-      <img className="mt-4 w-full" src={data.cover_image} />
+      <img
+        className="mt-4 w-full"
+        src={data.cover_image}
+        alt="Article cover image"
+      />
       <div
         className="post-content"
         dangerouslySetInnerHTML={{ __html: data.body_html }}
       />
-      <hr />
-      <span
-        className="block my-4 text-sm text-gray-700 cursor-pointer"
-        onClick={() => router.back()}
-      >
-        Click here to go back
-      </span>
+      <Link href="/blog">
+        <a className="block my-4">← Back to blog</a>
+      </Link>
     </article>
   );
 }

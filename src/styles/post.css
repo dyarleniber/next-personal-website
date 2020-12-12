@@ -5,9 +5,9 @@
 
 .post-content * {
   margin-top: theme("spacing[4]");
-  letter-spacing: 0.025em;
   font-size: 1.125rem;
   line-height: 1.75rem;
+  letter-spacing: 0.025rem;
 }
 
 .post-content a:link,
@@ -37,7 +37,7 @@
 }
 
 .post-content h1 {
-  margin-top: theme("spacing[10]");
+  margin-top: theme("spacing[16]");
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
@@ -63,26 +63,23 @@
   font-weight: 700;
 }
 
-.post-content code {
-  background: #282a36;
-  color: #f8f8f2;
+.post-content p code {
   padding: theme("spacing[1]");
+  background-color: theme("colors.gray.300");
+  border-radius: theme("borderRadius.md");
   font-size: 0.875rem;
   line-height: 1.25rem;
-  border-radius: 0.5rem;
 }
 
 .post-content pre.highlight {
   display: block;
+  padding: theme("spacing[4]");
   background: #282a36;
   color: #f8f8f2;
   overflow: auto;
-  padding: theme("spacing[4]");
 }
 
 .post-content pre.highlight * {
-  font-family: monospace;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  white-space: pre;
 }

@@ -17,8 +17,10 @@ export default function Blog({ username }) {
 
   if (isError || isEmpty) {
     return (
-      <section id="blog" className="mx-auto p-8 max-w-5xl h-screen">
-        <h1 className="text-center text-base">No records found.</h1>
+      <section id="blog" className="mx-auto p-16 max-w-5xl h-screen">
+        <h1 className="text-center text-xs uppercase font-bold">
+          No records found.
+        </h1>
       </section>
     );
   }
@@ -29,14 +31,19 @@ export default function Blog({ username }) {
       <div className={`${styles.gridwrapper}`}>
         {isLoading
           ? [...Array(6)].map((_, i) => (
-              <div key={i} className="animate-pulse p-4 rounded-sm shadow-md">
-                <div className="w-full h-16 bg-gray-300 rounded"></div>
+              <div
+                key={i}
+                className="animate-pulse p-4 rounded-sm shadow-md flex flex-col"
+              >
+                <div className="w-full h-28 bg-gray-300 rounded"></div>
+                <div className="mt-4 w-full h-2 bg-gray-300"></div>
                 <div className="mt-2 w-full h-2 bg-gray-300"></div>
-                <div className="mt-1 w-full h-2 bg-gray-300"></div>
-                <div className="mt-1 w-full h-2 bg-gray-300"></div>
                 <div className="mt-2 w-full h-2 bg-gray-300"></div>
-                <div className="mt-1 w-full h-2 bg-gray-300"></div>
-                <div className="mt-1 w-full h-2 bg-gray-300"></div>
+                <div className="self-end mt-6 w-20 h-2 bg-gray-300"></div>
+                <div className="flex mt-8">
+                  <div className="mr-2 w-24 h-2 bg-gray-300"></div>
+                  <div className="mr-2 w-24 h-2 bg-gray-300"></div>
+                </div>
               </div>
             ))
           : posts.map((post, i) => (
