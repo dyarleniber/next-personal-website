@@ -40,7 +40,7 @@ export default function Blog({ username }) {
               </div>
             ))
           : posts.map((post, i) => (
-              <Link key={`${i}_${post.id}`} href={`/posts/${post.id}`}>
+              <Link key={post.id} href={`/posts/${post.slug}`}>
                 <a className="bg-white rounded-sm shadow-md hover:shadow-2xl transition duration-500 ease-in-out hover:border border-gray-300">
                   {post.cover_image && (
                     <img

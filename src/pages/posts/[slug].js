@@ -79,20 +79,20 @@ export async function getStaticPaths() {
   );
 
   const paths = response.data.map((post) => ({
-    params: { id: post.id.toString() },
+    params: { slug: post.slug },
   }));
 
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const { id } = params;
-  const { name } = personalDataConfig;
+  const { slug } = params;
+  const { name, devuser } = personalDataConfig;
 
   let postData;
 
   try {
-    const response = await api.get(`/articles/${id}`);
+    const response = await api.get(`/articles/${devuser}/${slug}`);
     postData = response.data;
   } catch (error) {
     if (error.response?.status === 404) {
