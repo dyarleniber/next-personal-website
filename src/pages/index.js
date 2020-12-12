@@ -49,5 +49,6 @@ export async function getStaticProps() {
 
   return {
     props: { name, email, bio, location, socialmedia },
+    revalidate: 10,
   };
 }
