@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
 import PostSection from "../../components/post";
-import api from "../../services/devApi";
+import personalDataConfig from "../../config/personalData";
 import devConfig from "../../config/dev";
+import api from "../../services/devApi";
 
 export default function Post({ postData, name }) {
   return (
@@ -14,9 +15,9 @@ export default function Post({ postData, name }) {
         <meta name="keywords" content={postData.tag_list} />
 
         {/* Schema.org markup for Google+ */}
-        <meta itemprop="name" content={postData.title} />
-        <meta itemprop="description" content={postData.description} />
-        <meta itemprop="image" content={postData.social_image} />
+        <meta itemProp="name" content={postData.title} />
+        <meta itemProp="description" content={postData.description} />
+        <meta itemProp="image" content={postData.social_image} />
 
         {/* Twitter Card data */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -50,10 +51,11 @@ export default function Post({ postData, name }) {
 }
 
 export async function getStaticPaths() {
-  const devUsername = "dyarleniber";
-  const { buildperpage: perpage } = devConfig;
+  const { devuser } = personalDataConfig;
+  const { buildperpage } = devConfig;
+
   const response = await api.get(
-    `/articles?username=${devUsername}&page=${1}&per_page=${perpage}`
+    `/articles?username=${devuser}&page=${1}&per_page=${buildperpage}`
   );
 
   const paths = response.data.map((post) => ({
@@ -64,8 +66,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const name = "Dyarlen Iber";
-  const response = await api.get(`/articles/${params.id}`);
+  const { id } = params;
+  const { name } = personalDataConfig;
+
+  const response = await api.get(`/articles/${id}`);
 
   return { props: { postData: response.data, name } };
 }
