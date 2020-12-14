@@ -18,7 +18,7 @@ const sendContactEmail = async ({ email, message }) => {
   `;
 
   sgMail.setApiKey(sendgridApiKey);
-  sgMail.send({
+  await sgMail.send({
     from: sendgridSender,
     to: mailRecipients,
     subject: mailSubject,
