@@ -57,14 +57,14 @@ export default function Blog({ username }) {
                     />
                   )}
                   <div className="flex flex-col justify-between">
-                    <div class="px-6 py-4">
+                    <div className="px-6 py-4">
                       <p className="font-bold text-xl">{post.title}</p>
                       <p className="mt-1 text-base">{post.description}</p>
                       <p className="mt-2 text-sm text-right">
                         <Date dateString={post.published_at} />
                       </p>
                     </div>
-                    <div class="px-6 py-4">
+                    <div className="px-6 py-4">
                       {post.tag_list &&
                         post.tag_list.map((tag) => (
                           <span
