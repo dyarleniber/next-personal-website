@@ -74,7 +74,7 @@ export default function Contact() {
           <textarea
             name="message"
             placeholder="Hey! I'm getting in touch to tell you about..."
-            className="mb-4 w-full border border-transparent py-2 px-4 bg-white shadow-md rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
+            className="mb-4 w-full h-32 border border-transparent py-2 px-4 bg-white shadow-md rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
             value={message}
             onChange={handleMessage}
             required
