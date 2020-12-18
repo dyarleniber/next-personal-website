@@ -3,7 +3,11 @@
 </h1>
 
 <p align="center">
-  :computer: Personal website using JavaScript, Next.js, React, Hooks, SWR, Tailwind CSS, React Testing Library and Jest.
+  :computer: Personal website using JavaScript, Next.js, React, SWR, Tailwind CSS, Jest and React Testing Library.
+</p>
+
+<p align="center">
+  <img src="./public/powered-by-vercel.svg" alt="Powered by Vercel">
 </p>
 
 <p align="center">
