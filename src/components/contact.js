@@ -5,11 +5,11 @@ import Loading from "./loading";
 import Alert from "./alert";
 
 export default function Contact() {
-  const [email, setEmail] = useState();
-  const [message, setMessage] = useState();
-  const [loading, setLoading] = useState();
-  const [errorAlert, setErrorAlert] = useState();
-  const [successAlert, setSuccessAlert] = useState();
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorAlert, setErrorAlert] = useState(false);
+  const [successAlert, setSuccessAlert] = useState(false);
 
   const handleEmail = (event) => setEmail(event.target.value);
   const handleMessage = (event) => setMessage(event.target.value);

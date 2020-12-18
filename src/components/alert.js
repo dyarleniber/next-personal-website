@@ -1,4 +1,4 @@
-export default function Alert({ success, message, handleClose }) {
+export default function Alert({ success, message }) {
   return (
     <div
       className={`text-sm font-semibold text-center text-white px-3 py-2 border-0 rounded relative mb-4 ${
