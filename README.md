@@ -67,6 +67,9 @@ $ git clone https://github.com/dyarleniber/next-personal-website.git
 # Go into the repository folder
 $ cd next-personal-website
 
+# Create a new .env.local file based on .env.example and set new values (name, email, GitHub user, DEV Community user, social network links, SendGrid data and Google Tag Manager ID (Optional))
+$ cp .env.example .env.local
+
 # Install dependencies
 $ npm install
 
